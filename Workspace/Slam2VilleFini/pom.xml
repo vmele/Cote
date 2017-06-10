@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.pfit.sio</groupId>
+	<artifactId>slam2ville</artifactId>
+	<version>20150512</version>
+	<description></description>
+	<packaging>war</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jackson.version>2.8.3</jackson.version>
+	</properties>
+
+	<url>https://www.clelia.fr/Slam2Ville/</url>
+
+	<developers>
+		<developer>
+			<id>fxcote</id>
+			<name>Francois-Xavier Cote</name>
+			<email>fxcote@clelia.fr</email>
+			<roles>
+				<role>Enseignant</role>
+			</roles>
+		</developer>
+	</developers>
+
+
+	<repositories>
+		<repository>
+			<id>apache</id>
+			<name>Apache Repository</name>
+			<layout>default</layout>
+			<url>http://repo.maven.apache.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>ibiblio</id>
+			<name>IBiblio Maven Repository</name>
+			<layout>default</layout>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>Slam2Ville</finalName>
+
+		<plugins>
+
+			<!-- Il faut maintenant compiler le projet -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies />
+			</plugin>
+
+
+			<!-- On cree le war -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1-alpha-1</version>
+				<configuration>
+					<warSourceExcludes>WEB-INF/lib/servlet-api-2.3.jar</warSourceExcludes>
+				</configuration>
+				<goals>
+					<goal>compile</goal>
+				</goals>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+	</dependencies>
+
+</project>

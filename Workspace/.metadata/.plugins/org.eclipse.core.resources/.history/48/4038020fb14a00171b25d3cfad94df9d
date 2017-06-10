@@ -1,0 +1,256 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <script
+	src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script> -->
+<script type="text/javascript" src="js/reporting.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	crossorigin="anonymous"></script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Reporting</title>
+</head>
+<body>
+
+	<div class="container-fluid">
+		<br>
+		<div class="selecteur">
+			<div class="row">
+				<select id="searchUtilisateur" class="form-control col-md-3"
+					name="searchUtilisateur">
+				</select> <select id="searchClient" class="form-control col-md-3"
+					name="searchClient">
+				</select> <select id="searchEtat" class="form-control col-md-3"
+					name="searchEtat">
+				</select>
+			</div>
+			<br>
+			<h6>Date début :</h6>
+			<div class="search-container">
+				<div class="ui-widget">
+					<input type="date" id="dateDebut" name="dateDebut"
+						class="search form-control col-md-3" />
+				</div>
+			</div>
+
+			<h6>Date fin :</h6>
+			<div class="search-container">
+				<div class="ui-widget">
+					<input type="date" id="dateFin" name="dateFin"
+						class="search form-control col-md-3" />
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12  text-center">
+			<button id="searchListe" onclick="viderInfos()" type="button"
+				class="btn">Vider</button>
+			<button id="searchListe" onclick="sendInfos()" type="button"
+				class="btn">Envoyer</button>
+		</div>
+		<br> <br> <br>
+
+
+		<script type="text/javascript">
+			var barChart = null;
+
+			function sendInfos() {
+
+				var table = document.getElementById("dataTable");
+
+				$('#dataTable tbody').empty();
+
+				if (barChart != null) {
+					barChart.destroy();
+				}
+
+				var utilisateur = document.getElementById('searchUtilisateur');
+				var utilisateurValue = utilisateur.value;
+
+				var client = document.getElementById('searchClient');
+				var clientValue = client.value;
+
+				var etat = document.getElementById('searchEtat');
+				var etatValue = etat.value;
+
+				var dateDebut = document.getElementById('dateDebut');
+				var dateDebutValue = dateDebut.value;
+
+				var dateFin = document.getElementById('dateFin');
+				var dateFinValue = dateFin.value;
+
+				console.log("idUtilisateur : " + utilisateurValue
+						+ " /n idClient : " + clientValue + " /n Début : "
+						+ dateDebutValue + " /n Fin : " + dateFinValue);
+
+				$.ajax({
+					url : 'RechercheListe',
+					method : 'POST',
+					data : 'utilisateur=' + utilisateurValue + '&client='
+							+ clientValue + '&etat=' + etatValue + '&debut='
+							+ dateDebutValue + '&fin=' + dateFinValue,
+					success : function(result) {
+
+						var refCommande = [];
+						var utilisateur = [];
+						var dateCommande = [];
+						var dateDemandee = [];
+						var typeCommande = [];
+						var moyenContact = [];
+						var etatCommande = [];
+						var client = [];
+						var total = [];
+
+						$.each(result, function(key, value) {
+
+							refCommande.push(value['refCommande']);
+							utilisateur.push(value['utilisateur']);
+							dateCommande.push(value['dateCommande']);
+							dateDemandee.push(value['dateDemandee']);
+							typeCommande.push(value['type']);
+							moyenContact.push(value['moyenContact']);
+							etatCommande.push(value['etatCommande']);
+							client.push(value['client']);
+							total.push(value['montant']);
+
+						});
+
+						var t = "";
+						for (var i = 0; i < refCommande.length; i++) {
+							var tr = "<tr>";
+							tr += "<td>" + refCommande[i] + "</td>";
+							tr += "<td>" + utilisateur[i].prenom + " "
+									+ utilisateur[i].nom + "</td>";
+							tr += "<td>" + etatCommande[i].libelle + "</td>";
+							tr += "<td>" + client[i].raisonSociale + "</td>";
+							tr += "<td>" + dateCommande[i] + "</td>";
+							tr += "<td>" + dateDemandee[i] + "</td>";
+							tr += "<td>" + typeCommande[i].libelle + "</td>";
+							tr += "<td>" + total[i] + "€" + "</td>";
+							tr += "</tr>";
+							t += tr;
+						}
+
+						document.getElementById("dataTable").innerHTML += t;
+					}
+				});
+				$.ajax({
+					url : 'RechercheChart',
+					method : 'POST',
+					data : 'utilisateur=' + utilisateurValue + '&client='
+							+ clientValue + '&etat=' + etatValue + '&debut='
+							+ dateDebutValue + '&fin=' + dateFinValue,
+					success : function(result) {
+						console.log(result);
+
+						var nom = [];
+						var prenom = [];
+						var montant = [];
+
+						$.each(result, function(key, value) {
+							nom.push(value['nom']);
+							prenom.push(value['prenom']);
+							montant.push(value['montant']);
+						});
+
+						for (var i = 0; i < utilisateur.length; i++) {
+							console.log("Liste des utilisateurs : ");
+							console.log(nom[i] + " " + prenom[i] + " || "
+									+ montant[i]);
+						}
+
+						// Bar chart
+						barChart = new Chart(document
+								.getElementById("bar-chart"), {
+							type : 'bar',
+							data : {
+
+								labels : nom,
+								datasets : [ {
+									label : "Recette (€)",
+									backgroundColor : [ "#3e95cd", "#8e5ea2",
+											"#3cba9f", "#e8c3b9", "#c45850" ],
+									data : montant
+								} ]
+							},
+							options : {
+								legend : {
+									display : false
+								},
+			                    responsive: false,
+								title : {
+									display : true,
+									text : 'Montant des commandes.'
+								},
+								scales : {
+									yAxes : [ {
+										ticks : {
+											beginAtZero : true
+										}
+									} ]
+								}
+							}
+						});
+					}
+				});
+			}
+			
+			function viderInfos(){
+
+				var table = document.getElementById("dataTable");
+	
+				$('#dataTable tbody').empty();
+	
+				if (barChart != null) {
+					barChart.destroy();
+				}
+			}
+		</script>
+
+		<br>
+		<div class="table-responsive">
+			<table id="dataTable" cellspacing="0" width="100%"
+				class="table table-striped">
+				<thead>
+					<tr>
+						<th>Commande</th>
+						<th>Utilisateur</th>
+						<th>Etat</th>
+						<th>Client</th>
+						<th>Date Commande</th>
+						<th>Date Demandée</th>
+						<th>Type de commande</th>
+						<th>Montant total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<div>
+				</tbody>
+			</table>
+		</div>
+		<canvas id="bar-chart" width="800" height="450"></canvas>
+
+
+	</div>
+
+</body>
+</html>

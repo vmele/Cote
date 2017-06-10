@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<style type="text/css">
+ @import "https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/resources/dojo.css";
+ @import "https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dijit/themes/tundra/tundra.css";
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/dojo/1.11.2/dojo/dojo.js" type="text/javascript" djConfig="parseOnLoad: true, locale: 'fr'"></script>
+<script>
+dojo.require("dijit.form.FilteringSelect");
+dojo.require("dojox.data.QueryReadStore");
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Reporting</title>
+</head>
+
+
+<body>
+	<h3>VOUS ETES SUR LA PAGE DE REPORTING</h3>
+
+	<form name="formReporting" method="POST" action="">
+		<input type="text" name="inputGestionnaire" id="sumbit" placeholder="GC">
+		<input type="text"
+			name="inputClient" id="sumbit" placeholder="Client"> 
+		<input type="text" name="inputTypeCommande" id="sumbit"
+			placeholder="Type de commande"> 
+
+		<input type="date" name="inputDateDebut" id="dateDebut"
+			placeholder="Date début"> 
+		<input type="date" name="inputDateFin" id="dateFin"
+			placeholder="Date fin"> 
+			
+		<input type="submit" name="inputSubmit" id="sumbit" value="Rechercher">
+		
+
+	</form>
+	<button id="reset">reset</button>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/reporting.js"></script>
+	
+	Entrez un code postal
+<div data-dojo-type="dojox.data.QueryReadStore" data-dojo-props="url:'/RechercheUtilisateur', requestMethod:'get'" data-dojo-id="utilisateurStore"></div>
+<div data-dojo-type='dijit.form.FilteringSelect' data-dojo-props="store:villeStore, searchAttr:'name', pageSize:20, hasDownArrow:false" style="width:25em; overflow:none;"></div>
+
+</body>
+</html>

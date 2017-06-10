@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;PPE4_VMELE&apos;&#x0D;&#x0A;- Original project: &apos;PPE4_VMELE&apos;&#x0D;&#x0A;- Original element: &apos;PPE4_VMELE/src/util&apos;" description="Delete element" element1="/src&lt;util" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1492850109307" subPackages="false" version="1.0"/>
+</session>

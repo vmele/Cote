@@ -1,0 +1,17 @@
+<webapp-structure>
+  <registeredFiles>
+    <entry>
+      <string>currentBuild</string>
+      <path-set>
+        <pathsSet class="linked-hash-set">
+          <string>CSV/villes.csv</string>
+          <string>index.jsp</string>
+          <string>WEB-INF/web.xml</string>
+          <string>WEB-INF/classes/fr/pfit/sio/slam2ville/business/Ville.class</string>
+          <string>WEB-INF/classes/fr/pfit/sio/slam2ville/servlets/rechercheVilleJson.class</string>
+          <string>WEB-INF/lib/commons-lang-2.3.jar</string>
+        </pathsSet>
+      </path-set>
+    </entry>
+  </registeredFiles>
+</webapp-structure>

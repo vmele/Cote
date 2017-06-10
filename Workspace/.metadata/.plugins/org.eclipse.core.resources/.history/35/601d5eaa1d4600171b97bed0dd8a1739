@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+h6 {
+	font-family: 'Open Sans', sans-serif;
+	text-transform : uppercase;
+	font-size : 8px;
+}
+
+.essai select {
+
+	margin-right : auto;
+	margin-left : auto;
+}

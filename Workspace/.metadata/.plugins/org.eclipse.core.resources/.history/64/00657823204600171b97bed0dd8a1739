@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+h6 {
+	font-family: 'Open Sans', sans-serif;
+	text-transform : uppercase;
+	font-size : 8px;
+	text-align : center;
+}
+
+.selecteur select {
+
+	margin-right : auto;
+	margin-left : auto;
+}
+.selecteur input {
+
+	margin-right : auto;
+	margin-left : auto;
+	margin-bottom : 20px;
+}
+
+.selecteur btn {
+	text-align : center;
+	margin-right : auto;
+	margin-left : auto
+}
+
+btn  {
+	display: block;
+  margin : auto;
+}

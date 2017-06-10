@@ -1,0 +1,150 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- <link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"> -->
+	<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <script
+	src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+ -->
+<script type="text/javascript" src="js/reporting.js"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Reporting</title>
+</head>
+<body>
+
+	<form name="formListe" method="POST" action="RechercheListe">
+
+
+		<!-- 		<input id='searchUtilisateur' name='searchUtilisateur'
+			list="utilisateurListe" pattern="[A-Za-z '-]*$"
+			placeholder="Utilisateur" autofocus autocomplete="off"
+			onkeyup="utilisateur()">
+		<datalist id="utilisateurListe" name="idUtilisateur">
+
+		</datalist>
+
+		<input id='searchClient' name='searchClient' list="clientListe"
+			pattern="[A-Za-z '-]*$" placeholder="Client" autofocus
+			autocomplete="off" onkeyup="client()">
+		<datalist id="clientListe" name="idClient">
+
+		</datalist> -->
+
+
+		<select id="searchUtilisateur" name="searchUtilisateur">
+		</select> <select id="searchClient" name="searchClient">
+		</select>
+
+
+		<p>Date début :</p>
+		<div class="search-container">
+			<div class="ui-widget">
+				<input type="date" id="datepicker" name="dateDebut" class="search" />
+			</div>
+		</div>
+
+		<br>
+		<p>Date fin :</p>
+		<div class="search-container">
+			<div class="ui-widget">
+				<input type="date" id="datepicker" name="dateFin" class="search" />
+			</div>
+		</div>
+
+		<br> <input type="submit" name="submit" id="sumbit"
+			value="Envoyer">
+
+	</form>
+
+	<table id="example" class="table table-striped table-bordered"
+		cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Commande</th>
+				<th>Etat</th>
+				<th>Gestionnaire</th>
+				<th>Client</th>
+				<th>Type de commande</th>
+				<th>Montant total</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Commande</th>
+				<th>Etat</th>
+				<th>Gestionnaire</th>
+				<th>Client</th>
+				<th>Type de commande</th>
+				<th>Montant total</th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>Tiger Nixon</td>
+				<td>System Architect</td>
+				<td>Edinburgh</td>
+				<td>61</td>
+				<td>2011/04/25</td>
+				<td>$320,800</td>
+			</tr>
+			<tr>
+				<td>Garrett Winters</td>
+				<td>Accountant</td>
+				<td>Tokyo</td>
+				<td>63</td>
+				<td>2011/07/25</td>
+				<td>$170,750</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 	<form name="formReporting" method="POST" action="">
+		<input type="text" name="inputGestionnaire" id="sumbit" placeholder="GC">
+		<input type="text"
+			name="inputClient" id="sumbit" placeholder="Client"> 
+		<input type="text" name="inputTypeCommande" id="sumbit"
+			placeholder="Type de commande"> 
+
+		<input type="date" name="inputDateDebut" id="dateDebut"
+			placeholder="Date début"> 
+		<input type="date" name="inputDateFin" id="dateFin"
+			placeholder="Date fin"> 
+			
+		<input type="submit" name="inputSubmit" id="sumbit" value="Rechercher">
+		
+
+	</form>
+	<button id="reset">reset</button>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/reporting.js"></script> -->

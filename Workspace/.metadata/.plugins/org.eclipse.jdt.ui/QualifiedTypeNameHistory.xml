@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="fr.pfit.sio.slam2ville.business.Ville"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="business.Client"/>
+<fullyQualifiedTypeName name="business.EtatCommande"/>
+<fullyQualifiedTypeName name="dao.requete.ClientRequete"/>
+<fullyQualifiedTypeName name="dao.EtatCommandeDao"/>
+<fullyQualifiedTypeName name="dao.requete.MoyenContactRequete"/>
+<fullyQualifiedTypeName name="dao.requete.TypeCommandeRequete"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="util.UtilisateursCorrespondants"/>
+<fullyQualifiedTypeName name="business.Utilisateur"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.ParseException"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.core.JsonEncoding"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.core.JsonProcessingException"/>
+<fullyQualifiedTypeName name="dao.requete.CommandeRequete"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="dao.requete.EtatCommandeRequete"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="dao.requete.UtilisateurRequete"/>
+</qualifiedTypeNameHistroy>

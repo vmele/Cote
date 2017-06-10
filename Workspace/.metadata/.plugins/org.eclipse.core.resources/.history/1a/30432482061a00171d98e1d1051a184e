@@ -1,0 +1,47 @@
+package util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import business.Utilisateur;
+
+public class UtilisateursCorrespondants {
+	
+	@JsonProperty(value = "items")
+	private List<Utilisateur> utilisateurs;
+	private int nbUtilisateursTotals;
+
+	public int getNombreUtilisateurs() {
+		return utilisateurs.size();
+	}
+
+	@JsonProperty(value = "identifier")
+	public String getIdentifiant() {
+		return "id";
+	}
+
+	public UtilisateursCorrespondants() {
+		utilisateurs = new ArrayList<>();
+	}
+
+	public void ajouteUtilisateur(Utilisateur utilisateur) {
+		utilisateurs.add(utilisateur);
+	}
+
+	public List<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+
+	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+
+	public void setNbUtilisateurTotals(int nbUtilisateursTotals) {
+		this.nbUtilisateursTotals = nbUtilisateursTotals;
+	}
+
+	@JsonProperty(value = "numRows")
+	public int getNbUtilisateursTotals() {
+		return nbUtilisateursTotals;
+	}
+}

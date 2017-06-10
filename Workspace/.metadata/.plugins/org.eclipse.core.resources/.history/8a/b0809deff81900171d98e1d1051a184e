@@ -1,0 +1,7 @@
+function resetText() {
+	$('#reset').on('click', function() {
+		   $('input, textarea').val(function() {
+		       return this.defaultValue;
+		   });
+		});
+}

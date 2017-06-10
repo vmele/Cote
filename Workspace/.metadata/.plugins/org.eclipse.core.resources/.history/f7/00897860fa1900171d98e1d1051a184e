@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!-- <script type="text/javascript" src="js/reporting.js"></script>
+ -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Reporting</title>
+</head>
+<body>
+	<h3>VOUS ETES SUR LA PAGE DE REPORTING</h3>
+
+	<form name="formReporting" method="POST" action="">
+		<input type="text" name="inputGestionnaire" id="sumbit"
+			placeholder="GC" value="test"> <input type="text"
+			name="inputClient" id="sumbit" placeholder="Client"> <input
+			type="text" name="inputTypeCommande" id="sumbit"
+			placeholder="Type de commande"> <input type="text"
+			name="inputMoyenContact" id="sumbit" placeholder="Moyen de contact">
+		<input type="text" name="inputEtat" id="sumbit" placeholder="Etat">
+		<input type="text" name="inputDateCde" id="sumbit"
+			placeholder="Date cde."> <input type="text"
+			name="inputDateDemandee" id="sumbit" placeholder="Date demandée">
+
+		<input type="submit" name="inputSubmit" id="sumbit" value="Rechercher">
+
+	</form>
+	<button id="reset">Vider</button>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+package servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import business.Utilisateur;
+import fr.pfit.sio.villesajax.business.Ville;
+import service.UtilisateurService;
+import service.impl.UtilisateurServiceImpl;
+
+/**
+ * Servlet implementation class RechercheUtilisateur
+ */
+@WebServlet("/RechercheUtilisateur")
+public class RechercheUtilisateur extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	private int dojoPageSize = 20;
+	private UtilisateurService utilisateurServiceImpl;
+	List<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
+	listeUtilisateurs = utilisateurServiceImpl.recupererListeUtilisateurs();
+	
+
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RechercheUtilisateur() {
+        super();
+		this.utilisateurServiceImpl = new UtilisateurServiceImpl();
+
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

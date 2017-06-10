@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=PPE4_VMELE/src&lt;service{UtilisateurService.java[UtilisateurService" modifiers="513" timestamp="1496044022227"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;dao{UtilisateurDao.java[UtilisateurDao" modifiers="513" timestamp="1496043990775"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;dao{ClientDao.java[ClientDao" modifiers="513" timestamp="1493127656005"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;dao{CommandeDao.java[CommandeDao" modifiers="513" timestamp="1493210711301"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;dao{TypeCommandeDao.java[TypeCommandeDao" modifiers="513" timestamp="1490794420402"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;dao{MoyenContactDao.java[MoyenContactDao" modifiers="513" timestamp="1490794490070"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;service{ClientService.java[ClientService" modifiers="513" timestamp="1493127491825"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;service{CommandeService.java[CommandeService" modifiers="513" timestamp="1493212049005"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;service{EtatCommandeService.java[EtatCommandeService" modifiers="513" timestamp="1490789430577"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;service{MoyenContactService.java[MoyenContactService" modifiers="513" timestamp="1490788102739"/>
+<typeInfo handle="=PPE4_VMELE/src&lt;service{TypeCommandeService.java[TypeCommandeService" modifiers="513" timestamp="1490788109688"/>
+</typeInfoHistroy>

@@ -1,0 +1,117 @@
+package servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import business.Utilisateur;
+import service.UtilisateurService;
+import service.impl.UtilisateurServiceImpl;
+import util.UtilisateursCorrespondants;
+
+/**
+ * Servlet implementation class RechercheUtilisateur
+ */
+@WebServlet("/RechercheUtilisateur")
+public class RechercheUtilisateur extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	private int dojoPageSize = 20;
+	
+	private UtilisateurService utilisateurServiceImpl;
+	List<Utilisateur> listeUtilisateurs = new ArrayList<>();
+
+	
+
+	
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+    public RechercheUtilisateur() throws Exception {
+        super();
+		this.utilisateurServiceImpl = new UtilisateurServiceImpl();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		listeUtilisateurs = utilisateurServiceImpl.recupererListeUtilisateurs();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		int start = 0;
+		int counter = 0;
+		UtilisateursCorrespondants utilisateursCorrespondants = new UtilisateursCorrespondants();
+		
+		// je recupere le nom que l'utilisateur a saisie sur le formulaire
+		String nomSaisie = request.getParameter("name");
+
+		if (request.getParameter("start") != null)
+			start = Integer.parseInt(request.getParameter("start").toString());
+		if (request.getParameter("count") != null)
+			dojoPageSize = Integer.parseInt(request.getParameter("count").toString());
+
+		// Enleve l'etoile a la fin
+//		if (nomSaisie != null && nomSaisie.length() > 1 && nomSaisie.endsWith("*"))
+//			nomSaisie = nomSaisie.substring(0, nomSaisie.length() - 1);
+
+		List<Utilisateur> utilisateursTrouvees = chercheUtilisateur(nomSaisie);
+		
+		if (villesTrouvees!=null && villesTrouvees.size() > 0) {
+			villesCorrespondantes.setNbVillesTotales(villesTrouvees.size());
+
+			int nbResultats = 0;
+			
+			for (Ville ville : villesTrouvees) {
+				if (counter >= start && nbResultats < dojoPageSize) {
+					nbResultats++;
+					villesCorrespondantes.ajouteVille(ville);
+				}				
+				counter++;
+
+			}
+		}
+		response.getOutputStream().print(mapper.writeValueAsString(villesCorrespondantes));
+		response.getOutputStream().flush();
+	}
+
+
+
+	public List<Utilisateur> chercheUtilisateur(String nom) {
+
+		List<Utilisateur> utilisateurTrouve = new ArrayList<Utilisateur>();
+		if (nom == null)
+			return utilisateurTrouve;
+		Iterator itr = listeUtilisateurs.iterator();
+		while (itr.hasNext()) {
+			Utilisateur utilisateur = (Utilisateur) itr.next();
+			if (ville.getNom() != null && ville.getNom().toUpperCase().startsWith(nom.toUpperCase())) {
+				cpTrouve.add(ville);
+			}
+		}
+		if (cpTrouve.size() == 0) {
+			return null;
+		}
+		return cpTrouve;
+	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+
+	}
+
+}
